@@ -25,10 +25,25 @@ public class DictionaryCommandline extends DictionaryManagement{
             System.out.print(words.get(i).getWord_explain() + "\n");
         }
     }
+
+    public void dictionarySearcher(String startLookup) {
+        for (int i = 0; i < words.size(); ++i) {
+            if (words.get(i).getWord_target().startsWith(startLookup)) {
+                System.out.print(words.get(i).getWord_target() + ", ");
+            }
+        }
+        System.out.print("...");
+    }
+
     public void dictionaryBasic() {
         insertFromCommandline();
         showAllWords();
     }
 
+    public void dictionaryAdvanced(String lookupWord) {
+        insertFromFile();
+        showAllWords();
+        dictionaryLookup(lookupWord);
+    }
 
 }

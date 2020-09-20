@@ -5,5 +5,4 @@ public class Dictionary {
     protected ArrayList<Word> words = new ArrayList<Word>();
 
 
-
 }
