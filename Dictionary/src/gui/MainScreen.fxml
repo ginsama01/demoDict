@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="645.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+      <Tab text="ABOUT">
+         <content>
+            <fx:include source="scene0.fxml" />
+         </content>
+      </Tab>
+    <Tab text="DICTIONARY">
+       <content>
+         <fx:include source="scene1.fxml" />
+       </content>
+    </Tab>
+    <Tab text="EDIT/REMOVE">
+      <content>
+        <fx:include source="scene2.fxml" />
+      </content>
+    </Tab>
+      <Tab text="TRANSLATE">
+        <content>
+          <fx:include source="scene3.fxml" />
+        </content>
+      </Tab>
+      <Tab text="BOOK">
+         <content>
+            <fx:include source="scene4.fxml" />
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

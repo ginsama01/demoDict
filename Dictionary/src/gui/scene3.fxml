@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #FFCC00;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller3">
+   <children>
+      <HBox prefHeight="42.0" prefWidth="700.0">
+         <children>
+            <ChoiceBox fx:id="choiceBox1" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="160.0" top="50.0" />
+               </HBox.margin>
+            </ChoiceBox>
+            <ImageView fitHeight="62.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="50.0" right="50.0" top="38.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../image/muiten.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox fx:id="choiceBox2" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets top="50.0" />
+               </HBox.margin>
+            </ChoiceBox>
+         </children>
+         <VBox.margin>
+            <Insets top="-15.0" />
+         </VBox.margin>
+      </HBox>
+      <TextArea fx:id="textArea1" prefHeight="187.0" prefWidth="660.0" styleClass="area1">
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+      </TextArea>
+      <HBox prefHeight="65.0" prefWidth="700.0">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#speechTextTrans" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="30.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../image/loa1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageTrans" fitHeight="60.0" fitWidth="105.0" onMouseClicked="#transClickEvent" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/translate.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="230.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <TextArea fx:id="textArea2" prefHeight="200.0" prefWidth="200.0" styleClass="area1">
+         <font>
+            <Font name="Times New Roman" size="20.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+         </VBox.margin>
+      </TextArea>
+      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#speechTextDefinition" pickOnBounds="true" preserveRatio="true">
+         <VBox.margin>
+            <Insets left="30.0" top="5.0" />
+         </VBox.margin>
+         <image>
+            <Image url="@../image/loa1.png" />
+         </image>
+      </ImageView>
+   </children>
+</VBox>

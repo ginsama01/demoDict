@@ -1,9 +1,0 @@
-chicken : con gà
-woman : người phụ nữ
-nephew : cháu trai
-make a deal : thỏa thuận
-art : nghệ thuật
-arson : đột phá
-are : chúng tôi
-arm : cánh tay
-among : ở giữa
