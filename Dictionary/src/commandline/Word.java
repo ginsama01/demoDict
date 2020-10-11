@@ -1,5 +1,20 @@
 package commandline;
 
+/**
+ * mot node cua cay trie.
+ */
+public class Word {
+    protected int id;
+    protected int num;
+    protected int endword;
+    protected int[] child = new int[30];
+    protected String Word_explain = "";
+}
+
+/**
+ * method của commandline theo đề bài nhưng không dùng được đưa vào commend ẩn.
+ */
+/*
 public class Word {
     private String word_target;
     private String word_explain;
@@ -30,4 +45,4 @@ public class Word {
         this.word_target = word_target;
     }
 
-}
+}*/

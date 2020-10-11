@@ -6,7 +6,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.FileInputStream;
 
 public class Main extends Application {
     public static DictionaryCommandline testing = new DictionaryCommandline();
@@ -14,7 +17,6 @@ public class Main extends Application {
     public static void main(String[] args) {
         testing.insertFromDatabase();
         launch(args);
-        System.out.println(testing.dictionaryLookup("dog"));
     }
 
     @Override
@@ -24,7 +26,9 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("styling.css").toExternalForm());
             primaryStage.setTitle("Dictionary");
+            primaryStage.getIcons().add(new Image("/image/main.jpg"));
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (Exception e) {
             System.out.println(e.getMessage());

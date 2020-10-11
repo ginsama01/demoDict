@@ -1,5 +1,7 @@
 package dbforbook;
 
+//Class phục vụ cho chức năng BOOK.
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,6 +9,10 @@ import java.sql.Statement;
 
 public class DatabaseForBook {
 
+    /**
+     * Tạo một book mới.
+     * @param bookName tên BOOK
+     */
     public static void newBook(String bookName) {
         Connection c = null;
         Statement stmt = null;
@@ -23,10 +29,15 @@ public class DatabaseForBook {
             c.commit();
             c.close();
         } catch (Exception e) {
-            System.out.println("Failed");
+            System.out.println("New Failed");
         }
     }
 
+    /**
+     * Thêm một từ mới vào một BOOK.
+     * @param bookName tên BOOK
+     * @param word từ
+     */
     public static void addWordtoBook(String bookName, String word) {
         Connection c = null;
         Statement stmt = null;
@@ -39,7 +50,7 @@ public class DatabaseForBook {
             ResultSet rs = stmt.executeQuery(sql);
             int n = 0;
             while (rs.next()) {
-                ++n;
+                n = Math.max(rs.getInt("id") + 1, n);
             }
             sql = "INSERT INTO " + bookName + " (id,word) VALUES ("
                     + n + ", '" + word + "' );";
@@ -48,10 +59,15 @@ public class DatabaseForBook {
             c.commit();
             c.close();
         } catch (Exception e) {
-            System.out.println("Failed");
+            System.out.println("Add Failed");
         }
     }
 
+    /**
+     * Xóa một từ khỏi một BOOK.
+     * @param bookName tên BOOK
+     * @param word từ cần xóa
+     */
     public static void removeWordFromBook(String bookName, String word) {
         Connection c = null;
         Statement stmt = null;
@@ -67,11 +83,16 @@ public class DatabaseForBook {
             c.commit();
             c.close();
         } catch (Exception e) {
-            System.out.println("Failed");
+            System.out.println("Remove Failed");
         }
 
     }
 
+    /**
+     * Refresh cập nhât lại các từ trong BOOK.
+     * @param bookName tên BOOK
+     * @return một String, các từ cách nhau bởi dấu ","
+     */
     public static String loadBook(String bookName) {
         Connection c = null;
         Statement stmt = null;
@@ -91,11 +112,15 @@ public class DatabaseForBook {
             c.commit();
             c.close();
         } catch (Exception e) {
-            System.out.println("Failed");
+            System.out.println("Load Failed");
         }
         return s;
     }
 
+    /**
+     * Lấy dữ liệu các bookName
+     * @return một String các bookName cách nhau bởi dấu ","
+     */
     public static String loadBookName() {
         String s = "";
         Connection c = null;
@@ -108,7 +133,7 @@ public class DatabaseForBook {
             }
             c.close();
         } catch (Exception e) {
-            System.out.println("Failed");
+            System.out.println("Load Failed");
         }
         return s;
     }

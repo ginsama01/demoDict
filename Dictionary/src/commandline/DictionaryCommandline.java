@@ -3,6 +3,32 @@ import gui.*;
 
 public class DictionaryCommandline extends DictionaryManagement{
 
+    public DictionaryCommandline() {
+
+    }
+
+    /**
+     * search những từ bắt đầu bằng startLookup.
+     * @param startLookup đoạn đầu từ
+     * @return những từ bắt đầu bằng startLookup, phân cách bởi dấu phẩy ","
+     */
+    public String dictionarySearcher(String startLookup) {
+        s = "";
+        t = startLookup;
+        int idx = c_pref(startLookup);
+        if(idx != 0) {
+            if (!tree.get(idx).Word_explain.isEmpty()) {
+                s = s + startLookup + ",";
+            }
+            dfs(idx);
+        }
+        return s;
+    }
+
+    /**
+     * method của commandline theo đề bài nhưng không dùng được đưa vào commend ẩn.
+     */
+    /*
     private int getLengthNumber(int i) {
         int count = 0;
         if (i == 0) return 1;
@@ -37,7 +63,7 @@ public class DictionaryCommandline extends DictionaryManagement{
             }
         }
         return s;
-    }
+    }*/
 
 
 }

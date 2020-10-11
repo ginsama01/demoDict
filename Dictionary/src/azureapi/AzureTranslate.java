@@ -1,5 +1,11 @@
 package azureapi;
 
+/**
+ * Sử dụng API Translate của Azure, code dựa vào source code hướng dẫn trong
+ * forum docs.microsoft, đã được sửa theo ý hiểu và cách dùng của nhóm.
+ * KEY của thành viên nhóm, free account nên có limit.
+ */
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -34,17 +40,18 @@ public class AzureTranslate {
 
     public static String Translate(String Word) {
         try {
-            String json_text = Post(Word);
+            String jsonText = Post(Word);
             JsonParser parser = new JsonParser();
-            Object obj = parser.parse(json_text);
-            JsonObject obj2 = (JsonObject) (((JsonArray) obj).get(0));
-            JsonArray x = (JsonArray) (obj2.get("translations"));
-            JsonObject obj3 = (JsonObject) x.get(0);
-            String ret = String.valueOf(obj3.get("text"));
-            ret = ret.substring(1, ret.length() - 1);
-            return ret;
+            Object object = parser.parse(jsonText);
+            JsonObject jsonObject = (JsonObject) (((JsonArray) object).get(0));
+            JsonArray jsonArray = (JsonArray) (jsonObject.get("translations"));
+            JsonObject jsonObject1 = (JsonObject) jsonArray.get(0);
+            String result = String.valueOf(jsonObject1.get("text"));
+            result = result.substring(1, result.length() - 1);
+            return result;
         } catch (IOException e) {
-            return "-1";
+            System.out.println(e.getMessage());
+            return "0";
         }
     }
 

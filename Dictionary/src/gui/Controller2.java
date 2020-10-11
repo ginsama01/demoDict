@@ -8,17 +8,22 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import commandline.*;
 
-
+//Controller scene2
 public class Controller2 {
     @FXML
-    private TextField text1, text2, text3, text4, data1, data2, data3;
+    private TextField text1, text2, text3, text4, data1, data2, data3; //các text trong ctrinh
 
     @FXML
     private TextArea data4;
 
+    /**
+     * Bắt sự kiện On Action cho button Add/Edit.
+     * @param event sự kiện action (click chuột)
+     */
     @FXML
     public void addButtonAction(ActionEvent event) {
         String english = data1.getText();
+        english = english.toLowerCase();
         String[] ss = data4.getText().split("\\n");
         String vietnamese = "<h1>" + english + "</h1>"
                 + "<h3><i>/" + data2.getText() + "/</i></h3>"
@@ -28,7 +33,7 @@ public class Controller2 {
             vietnamese = vietnamese + "<li>" + ss[i] + "</li>";
         }
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Created by Thanh Huyen and Quang Huy with love");
+        alert.setContentText("Created by Thanh Huyen and Quang Huy");
         vietnamese = vietnamese + "</ul>";
         if (Main.testing.dictionaryLookup(english).equals("Can't find this word")) {
             Main.testing.addNewWord(english, vietnamese);
@@ -42,10 +47,16 @@ public class Controller2 {
         alert.show();
     }
 
+    /**
+     * Bắt sự kiện On Action cho button Remove.
+     * @param event sự kiện action(click chuột)
+     */
+    @FXML
     public void removeButtonAction(ActionEvent event) {
         String english = data1.getText();
+        english = english.toLowerCase();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Created by Thanh Huyen and Quang Huy with love");
+        alert.setContentText("Created by Thanh Huyen and Quang Huy");
         System.out.println(english);
         if (!Main.testing.dictionaryLookup(english).equals("Can't find this word")) {
             Main.testing.removeFromDatabase(english);
@@ -57,6 +68,9 @@ public class Controller2 {
         alert.show();
     }
 
+    /**
+     * Cấm nhập cho các textField hiển thị định nghĩa, đặt chế độ khung cho textArea.
+     */
     @FXML
     public void initialize() {
         text1.setEditable(false);

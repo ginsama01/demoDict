@@ -1,5 +1,11 @@
 package azureapi;
 
+/**
+ * Sử dụng API Speech của Azure, code dựa vào source code hướng dẫn trong
+ * forum docs.microsoft, đã được sửa theo ý hiểu và cách dùng của nhóm.
+ * KEY của thành viên nhóm, free account nên có limit.
+ */
+
 import com.microsoft.cognitiveservices.speech.*;
 
 /**
@@ -23,6 +29,7 @@ public class AzureSpeech {
                     "</speak>";
         }
     }
+
     public static void textToSpeech (String language, String name, String text) {
         try {
 

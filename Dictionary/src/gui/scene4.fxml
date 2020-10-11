@@ -25,14 +25,22 @@
                <children>
                   <HBox prefHeight="64.0" prefWidth="247.0" style="-fx-background-color: #FFCC00;">
                      <children>
-                        <ChoiceBox fx:id="choiceBox" prefHeight="39.0" prefWidth="200.0">
+                        <ChoiceBox fx:id="choiceBox" prefHeight="39.0" prefWidth="172.0">
                            <HBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </HBox.margin>
                         </ChoiceBox>
+                        <ImageView fx:id="refresh" fitHeight="56.0" fitWidth="33.0" onMouseClicked="#clickOnRefresh" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/refresh.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="5.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
                         <ImageView fx:id="addBook" fitHeight="56.0" fitWidth="33.0" onMouseClicked="#addBookAction" pickOnBounds="true" preserveRatio="true">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="3.0" top="10.0" />
                            </HBox.margin>
                            <image>
                               <Image url="@../image/add.png" />
