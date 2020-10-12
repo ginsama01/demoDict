@@ -11,7 +11,10 @@
     -fx-border-radius: 40px;
     -fx-font-size : 15px;
     -fx-text-fill: #111111;
+}
 
+.list-cell:selected {
+    -fx-background-color:#FFFF66;
 }
 .list-view .scroll-bar:vertical {
     -fx-background-color: #FFCC00;

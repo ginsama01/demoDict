@@ -87,6 +87,7 @@ public class Controller3 {
         choiceBox1.getItems().addAll(list1);
         choiceBox2.getItems().addAll(list2);
         textArea2.setEditable(false);
+
         //Bắt sự kiện thay đổi ngôn ngữ dịch
         choiceBox2.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.equals("English")) {
@@ -95,6 +96,7 @@ public class Controller3 {
                 AzureTranslate.setUrl("vi");
             }
         });
+
         textArea2.setWrapText(true);
     }
 }

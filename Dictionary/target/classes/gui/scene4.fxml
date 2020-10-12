@@ -48,7 +48,7 @@
                         </ImageView>
                      </children>
                   </HBox>
-                  <ListView fx:id="listView" onMouseClicked="#listviewMouseAction" prefHeight="544.0" prefWidth="247.0" stylesheets="@styling.css" />
+                  <ListView fx:id="listView" prefHeight="544.0" prefWidth="247.0" stylesheets="@styling.css" />
                </children>
             </VBox>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
@@ -68,6 +68,14 @@
                      </image>
                      <StackPane.margin>
                         <Insets left="290.0" top="-540.0" />
+                     </StackPane.margin>
+                  </ImageView>
+                  <ImageView fx:id="speaker1" fitHeight="37.0" fitWidth="36.0" onMouseClicked="#clickOnSpeaker1" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/loa.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="370.0" top="-460.0" />
                      </StackPane.margin>
                   </ImageView>
                </children>

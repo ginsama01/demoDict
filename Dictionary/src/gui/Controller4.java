@@ -2,6 +2,7 @@ package gui;
 
 import dbforbook.DatabaseForBook;
 import freettsspeech.FreettsSpeech;
+import googletexttospeech.JavaGoogleTextToSpeech;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -35,6 +36,9 @@ public class Controller4 {
     private ImageView speaker; //image phát âm
 
     @FXML
+    private ImageView speaker1;
+
+    @FXML
     private ImageView removeImage; //image remove word
 
     @FXML
@@ -50,26 +54,23 @@ public class Controller4 {
     @FXML
     private ChoiceBox choiceBox; //Box lựa chọn BOOK
 
-    /**
-     * Bắt sự kiện Mouse Clicked cho listView -> hiển thị nghĩa
-     * @param event sự kiện chuột
-     */
-    @FXML
-    public void listviewMouseAction(MouseEvent event) {
-        String wordSelect = listView.getSelectionModel().getSelectedItem();
-        wordSpeaker = wordSelect;
-        wordSelect = Main.testing.dictionaryLookup(wordSelect);
-        engine.loadContent(wordSelect, "text/html");
-        speaker.setVisible(true);
-        removeImage.setVisible(true);
-    }
 
     /**
-     * Bắt sự kiện Mouse Clicked cho Image phát âm -> phát âm từ.
+     * Bắt sự kiện Mouse Clicked cho biểu tượng phát âm -> phát âm từ = source github.
      * @param event sự kiện chuột
      */
     @FXML
     public void clickOnSpeaker(MouseEvent event) {
+        JavaGoogleTextToSpeech.speak(wordSpeaker);
+    }
+
+    /**
+     * Bắt sự kiện Mouse Clicked cho biểu tượng phát âm -> phát âm từ = thư viện freetts.
+     * @param event sự kiện chuột
+     */
+    @FXML
+    public void clickOnSpeaker1(MouseEvent event)
+    {
         FreettsSpeech.speech(wordSpeaker);
     }
 
@@ -139,9 +140,13 @@ public class Controller4 {
         listView.setItems(list);
         speaker.setVisible(false);
         removeImage.setVisible(false);
+        speaker1.setVisible(false);
+
         final Tooltip tooltip1 = new Tooltip("Speaker");
         speaker.setPickOnBounds(true);
         Tooltip.install(speaker, tooltip1);
+        speaker1.setPickOnBounds(true);
+        Tooltip.install(speaker1, tooltip1);
         final Tooltip tooltip2 = new Tooltip("Remove this word from BOOK");
         removeImage.setPickOnBounds(true);
         Tooltip.install(removeImage, tooltip2);
@@ -151,6 +156,8 @@ public class Controller4 {
         final Tooltip tooltip4 = new Tooltip("Create BOOK");
         addBook.setPickOnBounds(true);
         Tooltip.install(addBook, tooltip4);
+
+        //Bắt sự kiện selected list BOOK thay đổi.
         choiceBox.setItems(listChoice);
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             list.clear();
@@ -161,6 +168,19 @@ public class Controller4 {
                 for (int i = 0; i < ss.length; ++i) {
                     list.add(ss[i]);
                 }
+            }
+        });
+
+        //Bắt sự kiện selected item change.
+        listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            String wordSelect = listView.getSelectionModel().getSelectedItem();
+            if (!wordSelect.isEmpty()) {
+                wordSpeaker = wordSelect;
+                wordSelect = Main.testing.dictionaryLookup(wordSelect);
+                engine.loadContent(wordSelect, "text/html");
+                speaker.setVisible(true);
+                removeImage.setVisible(true);
+                speaker1.setVisible(true);
             }
         });
     }
