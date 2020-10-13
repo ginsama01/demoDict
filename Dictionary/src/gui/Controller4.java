@@ -161,6 +161,7 @@ public class Controller4 {
         choiceBox.setItems(listChoice);
         choiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             list.clear();
+            listView.getSelectionModel().clearSelection();
             recentBookname = newValue.toString();
             String s = DatabaseForBook.loadBook(newValue.toString());
             if (!s.isEmpty()) {
@@ -173,14 +174,16 @@ public class Controller4 {
 
         //Bắt sự kiện selected item change.
         listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            String wordSelect = listView.getSelectionModel().getSelectedItem();
-            if (!wordSelect.isEmpty()) {
-                wordSpeaker = wordSelect;
-                wordSelect = Main.testing.dictionaryLookup(wordSelect);
-                engine.loadContent(wordSelect, "text/html");
-                speaker.setVisible(true);
-                removeImage.setVisible(true);
-                speaker1.setVisible(true);
+            if (!listView.getSelectionModel().isEmpty()) {
+                String wordSelect = listView.getSelectionModel().getSelectedItem();
+                if (!wordSelect.isEmpty()) {
+                    wordSpeaker = wordSelect;
+                    wordSelect = Main.testing.dictionaryLookup(wordSelect);
+                    engine.loadContent(wordSelect, "text/html");
+                    speaker.setVisible(true);
+                    removeImage.setVisible(true);
+                    speaker1.setVisible(true);
+                }
             }
         });
     }

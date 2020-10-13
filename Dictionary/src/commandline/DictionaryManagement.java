@@ -117,7 +117,7 @@ public class DictionaryManagement extends Dictionary {
         Connection c = null;
         Statement stmt = null;
         try {
-            Class.forName("org.sqlite.JDBC");
+            Class.forName("org.sqlite.JDBC"); //tải lớp trình điều khiển
             c = DriverManager.getConnection("jdbc:sqlite:dict_hh.db");
             c.setAutoCommit(false);
             stmt = c.createStatement();

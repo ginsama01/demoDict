@@ -49,26 +49,7 @@ public class Dictionary {
         return idx;
     }
 
-    /**
-     * duyệt chiều sâu.
-     * @param idx id của node
-     */
-    public void dfs(int idx)
-    {
-        for(int i = 0; i < 30; i++)
-            if(tree.get(idx).child[i] != -1)
-            {
-                if (i == 26) t = t + ' ';
-                else if (i == 27) t = t + '\'';
-                else if (i == 28) t = t + '-';
-                else if (i == 29) t = t + '.';
-                else t = t + (char)(i + 'a');
-                int id = tree.get(idx).child[i];
-                if (!tree.get(id).Word_explain.isEmpty()) s = s + t + ",";
-                dfs(id);
-            }
-        t = t.substring(0,t.length()-1);
-    }
+
 
 }
 
