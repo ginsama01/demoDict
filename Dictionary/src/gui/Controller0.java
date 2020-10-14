@@ -18,6 +18,7 @@ public class Controller0 {
             "<ul>\n" +
             "\n" +
             "\t<li>  Lập trình bằng Java, sử dụng JavaFX làm giao diện đồ họa, sử dụng API Translator và API Speech của Azure, sử dụng database public trên mạng có gần 110000 từ. </li>\n" +
+            "\t<li> Project sử dụng jdk 1.8, viết bằng IntelliJ IDEA Ultimate.</li>\n" +
             "\t<li> Dictionary: </li>\n" +
             "\t\t<ul>\n" +
             "\t    <li> Tra từ tiếng Anh sang tiếng Việt qua thanh tìm kiếm, phát âm khi ấn vào biểu tượng loa.</li>\n" +
